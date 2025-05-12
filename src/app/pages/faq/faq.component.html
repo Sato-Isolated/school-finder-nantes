@@ -1,0 +1,58 @@
+<section class="faq-section" aria-label="Foire aux questions">
+  <h2>Foire aux questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" (click)="toggle(0)" [attr.aria-expanded]="opened[0]" aria-controls="faq-answer-0">
+        Comment fonctionne la recherche d'établissements scolaires à Nantes ?
+        <span class="faq-arrow" [class.open]="opened[0]">&#9660;</span>
+      </button>
+      <div class="faq-answer" *ngIf="opened[0]" id="faq-answer-0">
+        La recherche vous permet de filtrer les établissements par type, statut,
+        nombre d'élèves, options, etc. Les résultats s'affichent dynamiquement
+        sous forme de cartes, avec possibilité de voir les détails et de
+        contacter l'établissement.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" (click)="toggle(1)" [attr.aria-expanded]="opened[1]" aria-controls="faq-answer-1">
+        Puis-je contacter directement un établissement depuis la plateforme ?
+        <span class="faq-arrow" [class.open]="opened[1]">&#9660;</span>
+      </button>
+      <div class="faq-answer" *ngIf="opened[1]" id="faq-answer-1">
+        Oui, chaque fiche détail propose un bouton « Contacter l'établissement »
+        qui ouvre un formulaire de contact pré-rempli.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" (click)="toggle(2)" [attr.aria-expanded]="opened[2]" aria-controls="faq-answer-2">
+        Les informations affichées sont-elles à jour ?
+        <span class="faq-arrow" [class.open]="opened[2]">&#9660;</span>
+      </button>
+      <div class="faq-answer" *ngIf="opened[2]" id="faq-answer-2">
+        Les données proviennent de l'API officielle de l'Éducation nationale et
+        sont régulièrement mises à jour.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" (click)="toggle(3)" [attr.aria-expanded]="opened[3]" aria-controls="faq-answer-3">
+        Comment sont protégées mes données personnelles ?
+        <span class="faq-arrow" [class.open]="opened[3]">&#9660;</span>
+      </button>
+      <div class="faq-answer" *ngIf="opened[3]" id="faq-answer-3">
+        Les données saisies dans le formulaire de contact ne sont utilisées que
+        pour transmettre votre message à l'établissement concerné. Consultez nos
+        mentions légales pour plus d'informations.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" (click)="toggle(4)" [attr.aria-expanded]="opened[4]" aria-controls="faq-answer-4">
+        La plateforme est-elle gratuite ?
+        <span class="faq-arrow" [class.open]="opened[4]">&#9660;</span>
+      </button>
+      <div class="faq-answer" *ngIf="opened[4]" id="faq-answer-4">
+        Oui, l'utilisation de la plateforme est entièrement gratuite pour tous
+        les utilisateurs.
+      </div>
+    </div>
+  </div>
+</section>

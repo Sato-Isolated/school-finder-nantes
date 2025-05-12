@@ -1,0 +1,413 @@
+/* Modal détails établissement : design moderne, élégant, lisible, responsive */
+:host {
+  display: block;
+  max-width: 1100px;
+  min-width: 0;
+  background: var(--white, #fff);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.13), 0 2.5px 8px rgba(0, 0, 0, 0.08);
+  padding: 0;
+}
+
+h2[mat-dialog-title] {
+  font-size: 1.55em;
+  font-weight: 700;
+  color: var(--primary, #0a2540);
+  margin-bottom: 1.1em;
+  letter-spacing: 0.01em;
+  padding: 1.2em 2.2em 0 2.2em;
+  border-radius: 18px 18px 0 0;
+  background: var(--bg-light, #f5f7fa);
+}
+
+[mat-dialog-content] {
+  padding: 0 2.2em 0.5em 2.2em;
+  font-size: 1.13em;
+  color: var(--text-main, #1a202c);
+}
+
+.modal-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 0.7em;
+  font-size: 1.04em;
+  color: var(--text-main, #1a202c);
+  min-height: 28px;
+}
+
+.modal-info-row mat-icon {
+  color: var(--accent, #ff6b6b);
+  font-size: 1.22em;
+  opacity: 0.92;
+  margin-right: 0.18em;
+  flex-shrink: 0;
+}
+
+.modal-info-row .text-muted {
+  color: #b0b6be !important;
+  font-weight: 400;
+}
+
+[mat-dialog-actions] {
+  margin-top: 1.2em;
+  padding: 0 1.5em 1.2em 1.5em;
+}
+
+button[mat-stroked-button] {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 8px;
+  min-width: 140px;
+  font-size: 1.08em;
+  padding: 12px 0;
+  box-shadow: 0 1px 4px rgba(10, 37, 64, 0.07);
+  background: var(--accent, #ff6b6b);
+  color: var(--white, #fff);
+  border: none;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+button[mat-stroked-button]:hover,
+button[mat-stroked-button]:focus {
+  background: #ff4b4b;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.13);
+}
+
+/* Séparateur subtil entre titre et contenu */
+h2[mat-dialog-title] + [mat-dialog-content] {
+  border-top: 1px solid #f0f2f7;
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  :host {
+    max-width: 99vw;
+  }
+  .modal-map-container {
+    flex-basis: 320px;
+    width: 320px;
+    height: 260px;
+  }
+  #school-map {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  :host {
+    max-width: 99vw;
+  }
+  h2[mat-dialog-title],
+  [mat-dialog-content] {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .modal-details-flex {
+    flex-direction: column;
+    gap: 1.2em;
+  }
+  .modal-map-container {
+    width: 100%;
+    height: 220px;
+    margin: 0 auto;
+  }
+  #school-map {
+    min-height: 140px;
+  }
+  .custom-modal-content {
+    padding: 1em 0.7em 1.2em 0.7em;
+  }
+  .modal-details-list {
+    padding-right: 0;
+    margin-bottom: 1.2em;
+  }
+  .modal-map-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+  }
+  h2[mat-dialog-title] {
+    font-size: 1.08em;
+    padding: 1em 0.7em 0 0.7em;
+    border-radius: 10px 10px 0 0;
+  }
+  [mat-dialog-content] {
+    font-size: 0.98em;
+    padding: 0 0.7em 0.5em 0.7em;
+  }
+  [mat-dialog-actions] {
+    padding: 0 0.7em 1em 0.7em;
+  }
+  .modal-info-row {
+    font-size: 0.97em;
+    gap: 0.4em;
+  }
+  .modal-map-container {
+    width: 100%;
+    height: 220px;
+    margin: 1.2em 0 1.2em 0;
+    border-radius: 8px;
+  }
+  #school-map {
+    min-height: 180px;
+  }
+  .custom-modal-content {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 0 0 1.2em 0;
+    box-sizing: border-box;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 8px 32px rgba(10, 37, 64, 0.13), 0 2.5px 8px rgba(0, 0, 0, 0.08);
+  }
+  .modal-footer {
+   
+    padding: 0;
+ 
+    box-sizing: border-box;
+    background: var(--white, #fff);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 8px 32px rgba(10, 37, 64, 0.13), 0 2.5px 8px rgba(0, 0, 0, 0.08);
+  }
+  .modal-footer .modal-map-container {
+    width: 84vw; /* diviser par 2 pour avoir la largeur de la carte */
+    max-width: 84vw;
+    min-width: 0;
+    height: 220px;
+    border-radius: 8px;
+    margin: 0 auto 1.2em auto;
+  }
+  .modal-footer #school-map {
+    min-height: 180px;
+  }
+  .custom-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.2em;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0.7em;
+    position: relative;
+  }
+  .custom-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 2.1em;
+    background: none;
+    border: none;
+    color: var(--accent, #ff6b6b);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.18s;
+    line-height: 1;
+    outline: 2px solid transparent;
+    border-radius: 50%;
+    padding: 0.18em 0.32em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-modal-close:hover {
+    color: #ff4b4b;
+  }
+  .custom-modal-close:focus {
+    outline: 2.5px solid var(--accent, #ff6b6b);
+    outline-offset: 2px;
+    background: #ffeaea;
+  }
+}
+
+/* Styles pour la carte Leaflet */
+.modal-details-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 2.2em;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.modal-details-list {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-right: 1.5em;
+}
+
+.modal-map-container {
+  flex: 0 0 420px;
+  width: 420px;
+  height: 380px;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(10, 37, 64, 0.1);
+  background: #e9ecef;
+  position: relative;
+  border: 2px solid #e0e4ea;
+  min-width: 220px;
+  max-width: 100vw;
+  margin-left: 1.5em;
+}
+#school-map {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  z-index: 1;
+}
+
+/* Fix pour forcer l'affichage du marker Leaflet (icône PNG) */
+.leaflet-container .leaflet-marker-icon,
+.leaflet-container .leaflet-marker-shadow {
+  image-rendering: auto;
+  filter: drop-shadow(0 2px 4px rgba(10, 37, 64, 0.18));
+}
+
+/* Améliore la visibilité du marker sur fond clair */
+.leaflet-marker-icon {
+  border-radius: 50%;
+  border: 2px solid var(--accent, #ff6b6b);
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.13);
+}
+
+/* Styles pour une vraie modal custom */
+.custom-modal-backdrop {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 37, 64, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 2vw 0;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.custom-modal-backdrop:hover {
+  background: rgba(10, 37, 64, 0.42);
+}
+.custom-modal-content {
+  background: var(--white, #fff);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(10, 37, 64, 0.13), 0 2.5px 8px rgba(0, 0, 0, 0.08);
+  max-width: 1100px;
+  width: 98vw;
+  min-width: 0;
+  padding: 2.2em 2.2em 2em 2.2em;
+  position: relative;
+  outline: none;
+  animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.custom-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 0.5em;
+  border-radius: 18px 18px 0 0;
+  background: var(--bg-light, #f5f7fa);
+  position: relative;
+  margin-bottom: 1.2em; /* Ajoute de l'espace sous le header */
+}
+.custom-modal-title {
+  font-size: 1.55em;
+  font-weight: 700;
+  color: var(--primary, #0a2540);
+  margin: 0;
+  padding: 1.2em 0 0.5em 1em; /* Ajoute du padding à gauche */
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  line-height: 1.2;
+}
+.custom-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2.2em;
+  background: none;
+  border: none;
+  color: var(--accent, #ff6b6b);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.18s;
+  line-height: 1;
+  outline: 2px solid transparent;
+  border-radius: 50%;
+  padding: 0.18em 0.32em;
+}
+.custom-modal-close:hover {
+  color: #ff4b4b;
+}
+.custom-modal-close:focus {
+  outline: 2.5px solid var(--accent, #ff6b6b);
+  outline-offset: 2px;
+  background: #ffeaea;
+}
+dal-content::-webkit-scrollbar {
+  width: 8px;
+  background: #f5f7fa;
+  border-radius: 8px;
+}
+.custom-modal-content::-webkit-scrollbar-thumb {
+  background: #e0e4ea;
+  border-radius: 8px;
+}
+
+/* Style pour le bouton 'Contacter l'établissement' */
+.contact-btn {
+  margin-left: 1.2em;
+  font-size: 0.95em;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.09);
+  transition: all 0.2s ease;
+  background: var(--accent-light, #fff2f2);
+  color: var(--accent, #ff6b6b);
+  border: 1px solid var(--accent, #ff6b6b);
+}
+
+.contact-btn:hover {
+  background: var(--accent, #ff6b6b);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.25);
+}
+
+@media (max-width: 600px) {
+  .contact-btn {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+    padding: 6px 12px;
+  }
+}

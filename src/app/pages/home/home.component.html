@@ -1,0 +1,55 @@
+<!-- En-tête de la page d'accueil, role banner pour l'accessibilité -->
+<header class="header" role="banner" aria-label="En-tête de la page d'accueil">
+  <div class="container">
+    <h1>Trouvez votre établissement scolaire sur Nantes</h1>
+    <h2 class="subtitle">Écoles, collèges et lycées à portée de clic</h2>
+    <p class="lead">
+      Explorez, comparez et choisissez parmi des milliers d'établissements
+      scolaires publics et privés à Nantes et ses environs.
+    </p>
+  </div>
+</header>
+
+<!-- Section de recherche principale -->
+<section class="search-section" aria-label="Recherche d'établissement">
+  <div class="container">
+    <mat-card class="search-card">
+      <h2>Rechercher un établissement</h2>
+      <!-- Bouton pour accéder à la page de recherche -->
+      <button mat-raised-button (click)="goToSearch()" class="search-btn" aria-label="Rechercher un établissement scolaire">
+        <mat-icon aria-hidden="true">search</mat-icon>
+        Rechercher parmi {{ totalSchools$ | async }} établissements
+      </button>
+    </mat-card>
+  </div>
+</section>
+
+<!-- Section présentant les avantages de la plateforme -->
+<section class="featured-section" aria-label="Pourquoi utiliser notre plateforme ?">
+  <div class="container">
+    <h3>Pourquoi utiliser notre plateforme ?</h3>
+    <div class="features-cards">
+      <!-- Carte : base de données -->
+      <mat-card appearance="outlined">
+        <mat-card-content class="feature-card-content">
+          <mat-icon aria-hidden="true">school</mat-icon>
+          <span>Base de données complète et à jour</span>
+        </mat-card-content>
+      </mat-card>
+      <!-- Carte : comparaison -->
+      <mat-card appearance="outlined">
+        <mat-card-content class="feature-card-content">
+          <mat-icon aria-hidden="true">compare</mat-icon>
+          <span>Comparez facilement les établissements</span>
+        </mat-card-content>
+      </mat-card>
+      <!-- Carte : localisation -->
+      <mat-card appearance="outlined">
+        <mat-card-content class="feature-card-content">
+            <mat-icon aria-hidden="true">map</mat-icon>
+            <span>Localisez les établissements près de chez vous</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+<!-- Fenêtre modale personnalisée, role dialog pour l'accessibilité -->
+<div class="custom-modal-backdrop" (click)="closeModal()" aria-label="Fermer la fenêtre modale" tabindex="-1">
+  <div class="custom-modal-content" (click)="$event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="modal-titre">
+    <!-- En-tête de la modale -->
+    <div class="custom-modal-header">
+      <h2 class="custom-modal-title" id="modal-titre">{{ data.nom_etablissement }}</h2>
+      <!-- Bouton de fermeture de la modale -->
+      <button
+        class="custom-modal-close"
+        (click)="closeModal()"
+        aria-label="Fermer la fenêtre modale"
+      >
+        &times;
+      </button>
+    </div>
+    <!-- Détails de l'établissement -->
+    <div class="modal-details-flex">
+      <div class="modal-details-list">
+        <!-- Informations principales -->
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">school</mat-icon>
+          <span>{{ data.type_etablissement }} • {{ data.statut_public_prive }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">location_on</mat-icon>
+          <span>{{ data.adresse_1 }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">location_city</mat-icon>
+          <span>{{ data.nom_commune }} - {{ data.code_postal }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">event</mat-icon>
+          <span>Ouverture : {{ data.date_ouverture ? (data.date_ouverture | date : "yyyy") : "N/A" }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">people</mat-icon>
+          <span>Élèves : {{ data.nombre_d_eleves != null ? data.nombre_d_eleves : "N/A" }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">restaurant</mat-icon>
+          <span>Cantine : {{ data.restauration == 1 ? "Oui" : "Non" }}</span>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">hotel</mat-icon>
+          <span>Internat : {{ data.hebergement == 1 ? "Oui" : "Non" }}</span>
+        </div>
+        <div class="modal-info-row" *ngIf="data.ulis == 1">
+          <mat-icon aria-hidden="true">accessibility</mat-icon>
+          <span>ULIS</span>
+        </div>
+        <div class="modal-info-row" *ngIf="data.section_sport == 1">
+          <mat-icon aria-hidden="true">sports_soccer</mat-icon>
+          <span>Section Sport</span>
+        </div>
+        <div class="modal-info-row" *ngIf="data.section_europeenne == 1">
+          <mat-icon aria-hidden="true">public</mat-icon>
+          <span>Section Européenne</span>
+        </div>
+        <div class="modal-info-row" *ngIf="data.type_etablissement === 'Lycée'">
+          <mat-icon aria-hidden="true">school</mat-icon>
+          <span *ngIf="data.voie_generale == 1">Voie générale</span>
+          <span *ngIf="data.voie_technologique == 1">Voie techno</span>
+          <span *ngIf="data.voie_professionnelle == 1">Voie pro</span>
+        </div>
+        <!-- Bloc contact -->
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">mail</mat-icon>
+          <span *ngIf="data.mail; else noMail">{{ data.mail }}</span>
+          <ng-template #noMail><span class="text-muted">Mail non renseigné</span></ng-template>
+          <button
+            *ngIf="data.mail"
+            mat-raised-button
+            color="primary"
+            class="contact-btn"
+            (click)="contactSchool()"
+            aria-label="Contacter l'établissement par mail"
+          >
+            Contacter l'établissement
+          </button>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">call</mat-icon>
+          <span *ngIf="data.telephone; else noTel">{{ data.telephone }}</span>
+          <ng-template #noTel><span class="text-muted">Téléphone non renseigné</span></ng-template>
+        </div>
+        <div class="modal-info-row">
+          <mat-icon aria-hidden="true">language</mat-icon>
+          <a *ngIf="data.web" [href]="data.web" target="_blank" aria-label="Ouvrir le site web de l'établissement">Site web</a>
+          <span *ngIf="!data.web" class="text-muted">Site non renseigné</span>
+        </div>
+      </div>
+      <ng-container *ngIf="!isSmallScreen && data.latitude && data.longitude">
+        <div class="modal-map-container">
+          <div id="school-map"></div>
+        </div>
+      </ng-container>
+    </div>
+    <!-- Footer de modal pour sm -->
+    <div class="modal-footer" *ngIf="isSmallScreen && data.latitude && data.longitude">
+      <div class="modal-map-container">
+        <div id="school-map"></div>
+      </div>
+    </div>
+  </div>
+</div>

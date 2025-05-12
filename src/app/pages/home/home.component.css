@@ -1,0 +1,230 @@
+/* Enhanced styles for Home Component */
+
+/* Hero Section - Renamed from .header for clarity if you update HTML */
+.header {
+  /* Or .hero-section if you rename */
+  background: var(
+    --primary-gradient,
+    linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)
+  ); /* Example gradient */
+  color: var(--white);
+  padding: 64px 24px; /* Increased padding for impact */
+  text-align: center;
+  /* Removed box-shadow, header component has one */
+}
+
+.header h1 {
+  margin: 0 0 16px 0;
+  font-size: 2.8em; /* Slightly larger */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 1.5em; /* Slightly larger */
+  font-weight: 400; /* Lighter weight for subtitle */
+  margin-bottom: 24px;
+  color: var(--accent); /* Or a lighter shade of white/grey */
+  opacity: 0.9;
+}
+
+.lead {
+  font-size: 1.1em; /* Adjusted size */
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.85); /* Softer white */
+  max-width: 700px; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1100px; /* Wider container for content sections */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.search-section {
+  padding: 56px 0;
+  background-color: var(
+    --bg-light,
+    #f4f7f6
+  ); /* Use a variable or a light neutral */
+}
+
+.search-card {
+  background: var(--white);
+  border-radius: 12px; /* Consistent border-radius */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); /* Softer, more modern shadow */
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-card h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: var(--primary-dark, var(--primary)); /* Darker primary for heading */
+  font-size: 1.8em; /* Larger heading */
+  font-weight: 600;
+}
+
+.search-btn {
+  min-width: 280px; /* Wider button */
+  padding: 12px 24px !important; /* Ensure padding is applied if other styles conflict */
+  font-size: 1.1em !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px;
+  color: var(--accent); /* Material button should handle this */
+}
+
+.search-btn mat-icon {
+  margin-right: 10px; /* More space for icon */
+  vertical-align: middle;
+}
+
+.featured-section {
+  background: var(--white);
+  padding: 56px 24px;
+}
+
+.featured-section h3 {
+  text-align: center;
+  color: var(--primary-dark, var(--primary));
+  font-size: 2em; /* Prominent section title */
+  margin-bottom: 40px; /* More space below title */
+  font-weight: 600;
+}
+
+.features-cards {
+  display: grid; /* Using grid for better alignment and responsiveness */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Responsive columns */
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-card {
+  background-color: var(--bg-light, #f9f9f9);
+  border-radius: 8px;
+  padding: 24px; /* Increased padding for better spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-align: center; /* Center text content */
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card-content {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  gap: 16px;
+}
+
+.feature-card-icon {
+  color: var(--accent);
+  font-size: 2.2em; /* Slightly larger icons */
+  margin-bottom: 8px; /* Add space below icon */
+}
+
+.feature-card-text {
+  font-size: 1.1em;
+  color: var(--text-main);
+  font-weight: 500;
+  text-align: center; /* Ensure text is centered */
+}
+
+mat-icon {
+  color: var(--accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Adjusted breakpoint */
+  .header {
+    /* Or .hero-section */
+    padding: 48px 16px;
+  }
+  .header h1 {
+    font-size: 2.2em;
+  }
+  .subtitle {
+    font-size: 1.2em;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .search-card {
+    padding: 24px;
+  }
+  .search-card h2 {
+    font-size: 1.5em;
+  }
+  .search-btn {
+    min-width: auto; /* Allow button to size naturally */
+    width: 100%; /* Full width on mobile */
+    padding: 12px 16px !important;
+  }
+  .featured-section h3 {
+    font-size: 1.6em;
+    margin-bottom: 32px;
+  }
+  .features-list {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    gap: 16px;
+  }
+  .features-list mat-list-item {
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+  .subtitle {
+    font-size: 1.1em;
+  }
+  .lead {
+    font-size: 1em;
+  }
+  .search-card h2 {
+    font-size: 1.3em;
+  }
+  .featured-section h3 {
+    font-size: 1.4em;
+  }
+  .features-list mat-list-item mat-icon {
+    font-size: 1.8em;
+  }
+  .features-list mat-list-item span {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 98vw;
+    padding: 0 16px;
+  }
+  .featured-section {
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    max-width: 100vw;
+    padding: 0 8px;
+  }
+  .featured-section {
+    padding: 32px 8px;
+  }
+}

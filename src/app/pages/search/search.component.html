@@ -1,0 +1,288 @@
+<button
+  mat-icon-button
+  class="toggle-sidenav-btn"
+  (click)="sidenav.toggle()"
+  *ngIf="isSmallScreen"
+  aria-label="Ouvrir les filtres"
+>
+  <mat-icon aria-hidden="true">menu</mat-icon>
+</button>
+
+<mat-sidenav-container class="sidenav-container" aria-label="Conteneur de navigation latérale">
+  <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [opened]="!isSmallScreen" class="sidenav" aria-label="Filtres de recherche">
+    <h3>Filtres</h3>
+    <form aria-label="Formulaire de filtres de recherche">
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Type d'établissement</mat-label>
+        <mat-select
+          name="type"
+          [(ngModel)]="filters.type"
+          (selectionChange)="onAnyFilterChange()"
+          aria-label="Type d'établissement"
+        >
+          <mat-option value="">Tous</mat-option>
+          <mat-option value="École">École</mat-option>
+          <mat-option value="Collège">Collège</mat-option>
+          <mat-option value="Lycée">Lycée</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Statut</mat-label>
+        <mat-select
+          name="statut"
+          [(ngModel)]="filters.statut"
+          (selectionChange)="onAnyFilterChange()"
+          aria-label="Statut de l'établissement"
+        >
+          <mat-option value="">Tous</mat-option>
+          <mat-option value="Public">Public</mat-option>
+          <mat-option value="Privé">Privé</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="filter-row">
+        <mat-form-field
+          appearance="fill"
+          class="filter-field"
+          style="width: 48%"
+        >
+          <mat-label>Élèves min</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="filters.elevesMin"
+            name="elevesMin"
+            min="0"
+            (ngModelChange)="onAnyFilterChange()"
+            aria-label="Nombre d'élèves minimum"
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="fill"
+          class="filter-field"
+          style="width: 48%"
+        >
+          <mat-label>Élèves max</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="filters.elevesMax"
+            name="elevesMax"
+            min="0"
+            (ngModelChange)="onAnyFilterChange()"
+            aria-label="Nombre d'élèves maximum"
+          />
+        </mat-form-field>
+      </div>
+      <mat-checkbox
+        [(ngModel)]="filters.restauration"
+        name="restauration"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par cantine"
+        >Cantine</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.hebergement"
+        name="hebergement"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par internat"
+        >Internat</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.ulis"
+        name="ulis"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par ULIS"
+        >ULIS</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.voie_generale"
+        name="voie_generale"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par voie générale"
+        >Voie générale</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.voie_technologique"
+        name="voie_technologique"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par voie technologique"
+        >Voie technologique</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.voie_professionnelle"
+        name="voie_professionnelle"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par voie professionnelle"
+        >Voie professionnelle</mat-checkbox
+      >
+      <div class="filter-row">
+        <mat-form-field
+          appearance="fill"
+          class="filter-field"
+          style="width: 48%"
+        >
+          <mat-label>Année ouverture min</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="filters.anneeMin"
+            name="anneeMin"
+            min="1800"
+            max="2100"
+            (ngModelChange)="onAnyFilterChange()"
+            aria-label="Année d'ouverture minimum"
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="fill"
+          class="filter-field"
+          style="width: 48%"
+        >
+          <mat-label>Année ouverture max</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="filters.anneeMax"
+            name="anneeMax"
+            min="1800"
+            max="2100"
+            (ngModelChange)="onAnyFilterChange()"
+            aria-label="Année d'ouverture maximum"
+          />
+        </mat-form-field>
+      </div>
+      <mat-checkbox
+        [(ngModel)]="filters.section_sport"
+        name="section_sport"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par section sport"
+        >Section sport</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="filters.section_europeenne"
+        name="section_europeenne"
+        (change)="onAnyFilterChange()"
+        aria-label="Filtrer par section européenne"
+        >Section européenne</mat-checkbox
+      >
+      <div class="filter-actions-row">
+        <button
+          mat-stroked-button
+          color="accent"
+          type="button"
+          (click)="resetFilters()"
+          aria-label="Réinitialiser les filtres"
+        >
+          Réinitialiser les filtres
+        </button>
+      </div>
+    </form>
+  </mat-sidenav>
+
+  <mat-sidenav-content aria-label="Contenu principal de la recherche">
+    <div class="search-bar-container">
+      <h2>Recherche d'écoles</h2>
+      <div class="search-bar">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Recherche</mat-label>
+          <input
+            matInput
+            name="searchTerm"
+            placeholder="Nom, commune, code postal..."
+            [(ngModel)]="searchTerm"
+            aria-label="Recherche par nom, commune ou code postal"
+          />
+        </mat-form-field>
+        <button mat-raised-button color="primary" aria-label="Lancer la recherche">Rechercher</button>
+      </div>
+    </div>
+
+    <div class="results-container" aria-label="Résultats de la recherche">
+      <div class="results-header">
+        <span *ngIf="totalCount !== null">
+          {{ filteredSchools.length }} / {{ totalCount }} établissements
+          affichés
+        </span>
+      </div>
+      <div class="cards-list">
+        <div class="result-card" *ngFor="let ecole of filteredSchools">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <span class="school-title">{{ ecole.nom_etablissement }}</span>
+              </mat-card-title>
+              <mat-card-subtitle>
+                <span class="subtitle-type">{{
+                  ecole.type_etablissement || "Type inconnu"
+                }}</span>
+                <span class="subtitle-sep">•</span>
+                <span class="subtitle-statut">{{
+                  ecole.statut_public_prive || "Statut inconnu"
+                }}</span>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="infos-block">
+                <div class="info-row">
+                  <span class="info-main">{{
+                    ecole.adresse_1 || "Adresse non renseignée"
+                  }}</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-main">
+                    {{ ecole.nom_commune || "Commune inconnue"
+                    }}<span *ngIf="ecole.code_postal" class="info-cp">
+                      - {{ ecole.code_postal }}</span
+                    >
+                  </span>
+                </div>
+                <div class="info-row">
+                  <span class="info-main">
+                    Ouverture :
+                    {{
+                      ecole.date_ouverture
+                        ? (ecole.date_ouverture | date : "yyyy")
+                        : "N/A"
+                    }}
+                  </span>
+                </div>
+                <div class="info-row">
+                  <ng-container *ngIf="ecole.web; else noWeb">
+                    <a [href]="ecole.web" target="_blank" class="info-main" aria-label="Ouvrir le site web de l'établissement">Site web</a>
+                  </ng-container>
+                  <ng-template #noWeb>
+                    <span class="text-muted info-main">Site non renseigné</span>
+                  </ng-template>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button
+                mat-stroked-button
+                color="primary"
+                (click)="openDetails(ecole)"
+                [attr.aria-label]="'Voir les détails de l\'établissement ' + ecole.nom_etablissement"
+              >
+                En savoir plus
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      <mat-progress-bar *ngIf="loading" mode="indeterminate" aria-label="Chargement des résultats"></mat-progress-bar>
+      <div *ngIf="!loading && filteredSchools.length === 0">
+        <p>Aucun résultat trouvé.</p>
+      </div>
+      <button
+        class="scroll-top-btn"
+        *ngIf="showScrollTop"
+        mat-fab
+        color="primary"
+        (click)="scrollToTop()"
+        aria-label="Remonter en haut"
+      >
+        <mat-icon aria-hidden="true">arrow_upward</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

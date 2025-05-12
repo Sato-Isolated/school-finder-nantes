@@ -1,0 +1,81 @@
+/* Mentions légales section modern responsive design */
+.mentions-section {
+  max-width: 700px;
+  margin: 2.5em auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(10, 37, 64, 0.1);
+  padding: 2.2em 2em 2em 2em;
+}
+.mentions-section h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--primary, #0a2540);
+  margin-bottom: 1.2em;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+.mentions-block {
+  margin-bottom: 1.5em;
+  background: var(--bg-light, #f5f7fa);
+  border-radius: 10px;
+  padding: 1.1em 1.2em 0.7em 1.2em;
+  box-shadow: 0 1px 4px rgba(10, 37, 64, 0.04);
+}
+.mentions-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.13em;
+  font-weight: 600;
+  color: var(--accent, #ff6b6b);
+  margin-bottom: 0.5em;
+}
+.mentions-block h3 mat-icon {
+  font-size: 1.25em;
+  vertical-align: middle;
+  margin-right: 0.18em;
+  color: var(--accent, #ff6b6b);
+  opacity: 0.92;
+  /* align with text baseline */
+  position: relative;
+  top: 1px;
+}
+.mentions-block p {
+  font-size: 1.04em;
+  color: #333;
+  margin: 0;
+}
+.mentions-block a {
+  color: var(--accent, #ff6b6b);
+  text-decoration: underline;
+}
+.mentions-block a:hover {
+  color: #d32f2f;
+}
+@media (max-width: 600px) {
+  .mentions-section {
+    padding: 1.2em 0.5em 1.2em 0.5em;
+  }
+  .mentions-block {
+    padding: 0.7em 0.5em 0.5em 0.5em;
+  }
+}
+@media (max-width: 1200px) {
+  .mentions-section {
+    max-width: 90vw;
+    padding: 2em 1em 1.5em 1em;
+  }
+  .mentions-block {
+    padding: 1em 1em 0.7em 1em;
+  }
+}
+@media (max-width: 900px) {
+  .mentions-section {
+    max-width: 98vw;
+    padding: 1.5em 0.7em 1em 0.7em;
+  }
+  .mentions-block {
+    padding: 0.8em 0.7em 0.5em 0.7em;
+  }
+}

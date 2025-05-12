@@ -1,0 +1,85 @@
+<form
+  class="contact-form"
+  [formGroup]="contactForm"
+  (ngSubmit)="onSubmit()"
+  novalidate
+  aria-label="Formulaire de contact avec un établissement"
+>
+  <h2>Contacter un établissement</h2>
+  <div *ngIf="mail || etab" class="contact-info" aria-label="Informations pré-remplies">
+    <div *ngIf="etab"><strong>Établissement :</strong> {{ etab }}</div>
+    <div *ngIf="mail"><strong>Email :</strong> {{ mail }}</div>
+  </div>
+
+  <mat-form-field appearance="fill" class="contact-field">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" required aria-label="Nom" />
+    <mat-error *ngIf="submitted && contactForm.get('nom')?.hasError('required')"
+      >Nom requis</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="contact-field">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="prenom" required aria-label="Prénom" />
+    <mat-error
+      *ngIf="submitted && contactForm.get('prenom')?.hasError('required')"
+      >Prénom requis</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="contact-field">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" required aria-label="Adresse email" />
+    <mat-error
+      *ngIf="submitted && contactForm.get('email')?.hasError('required')"
+      >Email requis</mat-error
+    >
+    <mat-error *ngIf="submitted && contactForm.get('email')?.hasError('email')"
+      >Email invalide</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="contact-field">
+    <mat-label>Objet</mat-label>
+    <input matInput formControlName="objet" required aria-label="Objet du message" />
+    <mat-error
+      *ngIf="submitted && contactForm.get('objet')?.hasError('required')"
+      >Objet requis</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="contact-field">
+    <mat-label>Message</mat-label>
+    <textarea matInput rows="5" formControlName="message" required aria-label="Message"></textarea>
+    <mat-error
+      *ngIf="submitted && contactForm.get('message')?.hasError('required')"
+      >Message requis</mat-error
+    >
+  </mat-form-field>
+
+  <mat-checkbox formControlName="cgu" class="contact-field" aria-label="Accepter les conditions d'utilisation">
+    J’accepte les
+    <a href="/mentions-legales" target="_blank">conditions d’utilisation</a>
+  </mat-checkbox>
+  <div
+    class="error-text"
+    *ngIf="submitted && contactForm.get('cgu')?.hasError('required')"
+    aria-live="polite"
+  >
+    Vous devez accepter les conditions d’utilisation.
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="contactForm.invalid || !contactForm.get('cgu')?.value"
+    aria-label="Envoyer le formulaire de contact"
+  >
+    Envoyer
+  </button>
+
+  <div class="success-text" *ngIf="successMsg" aria-live="polite">{{ successMsg }}</div>
+  <div class="error-text" *ngIf="errorMsg" aria-live="polite">{{ errorMsg }}</div>
+</form>
