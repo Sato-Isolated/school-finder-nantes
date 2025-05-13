@@ -60,6 +60,10 @@ export class HomeComponent implements OnInit {
       name: 'canonical',
       content: 'https://sato-isolated.github.io/school-finder-nantes/',
     });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'école, collège, lycée, Nantes, recherche, établissement scolaire, inscription, éducation, carte, comparaison, public, privé'
+    });
   }
 
   goToSearch() {

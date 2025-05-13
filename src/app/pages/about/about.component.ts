@@ -36,5 +36,9 @@ export class AboutComponent {
       property: 'og:image',
       content: '/assets/img/logo.jpg',
     });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'école, collège, lycée, Nantes, recherche, établissement scolaire, inscription, éducation, carte, comparaison, public, privé'
+    });
   }
 }
