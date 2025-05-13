@@ -5,8 +5,26 @@
   novalidate
   aria-label="Formulaire de contact avec un établissement"
 >
+  <div class="contact-warning faq-warning">
+    <strong>Attention :</strong> Ce formulaire est fictif, dans le cadre d'un
+    projet de formation. Si vous souhaitez réellement contacter un
+    établissement, merci de le faire directement depuis votre propre messagerie
+    électronique.<br />
+    Le code source est disponible sur
+    <a
+      href="https://github.com/Sato-Isolated/school-finder-nantes"
+      target="_blank"
+      rel="noopener"
+      >GitHub</a
+    >.
+  </div>
+
   <h2>Contacter un établissement</h2>
-  <div *ngIf="mail || etab" class="contact-info" aria-label="Informations pré-remplies">
+  <div
+    *ngIf="mail || etab"
+    class="contact-info"
+    aria-label="Informations pré-remplies"
+  >
     <div *ngIf="etab"><strong>Établissement :</strong> {{ etab }}</div>
     <div *ngIf="mail"><strong>Email :</strong> {{ mail }}</div>
   </div>
@@ -30,7 +48,13 @@
 
   <mat-form-field appearance="fill" class="contact-field">
     <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="email" required aria-label="Adresse email" />
+    <input
+      matInput
+      formControlName="email"
+      type="email"
+      required
+      aria-label="Adresse email"
+    />
     <mat-error
       *ngIf="submitted && contactForm.get('email')?.hasError('required')"
       >Email requis</mat-error
@@ -42,7 +66,12 @@
 
   <mat-form-field appearance="fill" class="contact-field">
     <mat-label>Objet</mat-label>
-    <input matInput formControlName="objet" required aria-label="Objet du message" />
+    <input
+      matInput
+      formControlName="objet"
+      required
+      aria-label="Objet du message"
+    />
     <mat-error
       *ngIf="submitted && contactForm.get('objet')?.hasError('required')"
       >Objet requis</mat-error
@@ -51,14 +80,24 @@
 
   <mat-form-field appearance="fill" class="contact-field">
     <mat-label>Message</mat-label>
-    <textarea matInput rows="5" formControlName="message" required aria-label="Message"></textarea>
+    <textarea
+      matInput
+      rows="5"
+      formControlName="message"
+      required
+      aria-label="Message"
+    ></textarea>
     <mat-error
       *ngIf="submitted && contactForm.get('message')?.hasError('required')"
       >Message requis</mat-error
     >
   </mat-form-field>
 
-  <mat-checkbox formControlName="cgu" class="contact-field" aria-label="Accepter les conditions d'utilisation">
+  <mat-checkbox
+    formControlName="cgu"
+    class="contact-field"
+    aria-label="Accepter les conditions d'utilisation"
+  >
     J’accepte les
     <a href="/mentions-legales" target="_blank">conditions d’utilisation</a>
   </mat-checkbox>
@@ -80,6 +119,10 @@
     Envoyer
   </button>
 
-  <div class="success-text" *ngIf="successMsg" aria-live="polite">{{ successMsg }}</div>
-  <div class="error-text" *ngIf="errorMsg" aria-live="polite">{{ errorMsg }}</div>
+  <div class="success-text" *ngIf="successMsg" aria-live="polite">
+    {{ successMsg }}
+  </div>
+  <div class="error-text" *ngIf="errorMsg" aria-live="polite">
+    {{ errorMsg }}
+  </div>
 </form>

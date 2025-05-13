@@ -97,3 +97,8 @@
     padding: 1.5em 0.7em 1em 0.7em;
   }
 }
+
+/* Ajout d'une classe pour le message d'avertissement */
+.faq-warning {
+  /* Les styles sont définis dans styles.css pour la cohérence globale */
+}

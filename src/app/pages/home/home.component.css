@@ -145,6 +145,11 @@ mat-icon {
   color: var(--accent);
 }
 
+/* Ajout d'une classe pour le message d'avertissement */
+.home-warning {
+  /* Les styles sont définis dans styles.css pour la cohérence globale */
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   /* Adjusted breakpoint */

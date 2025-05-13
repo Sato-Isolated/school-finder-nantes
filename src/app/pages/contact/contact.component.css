@@ -93,6 +93,11 @@ mat-checkbox.contact-field a:hover {
   color: #d32f2f;
 }
 
+/* Ajout d'une classe pour le message d'avertissement */
+.contact-warning {
+  /* Les styles sont définis dans styles.css pour la cohérence globale */
+}
+
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .contact-form {

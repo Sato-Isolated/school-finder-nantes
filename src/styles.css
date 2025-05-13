@@ -19,3 +19,28 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.faq-warning,
+.about-warning,
+.contact-warning,
+.home-warning {
+  background: #f5f5f5;
+  border-left: 4px solid #1976d2;
+  color: #444;
+  padding: 1em 1.2em;
+  margin-bottom: 1.5em;
+  border-radius: 4px;
+  font-size: 1em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  display: block;
+  text-align: center;
+}
+
+.faq-warning a,
+.about-warning a,
+.contact-warning a,
+.home-warning a {
+  color: #1976d2;
+  text-decoration: underline;
+  word-break: break-all;
+}

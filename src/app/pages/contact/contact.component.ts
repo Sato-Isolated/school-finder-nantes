@@ -11,6 +11,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -34,7 +35,12 @@ export class ContactComponent {
   successMsg = '';
   errorMsg = '';
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private titleService: Title,
+    private metaService: Meta
+  ) {
     this.route.queryParamMap.subscribe((params) => {
       this.mail = params.get('mail');
       this.etab = params.get('etab');
@@ -54,6 +60,34 @@ export class ContactComponent {
         Validators.required,
       ],
       cgu: [false, Validators.requiredTrue],
+    });
+
+    this.titleService.setTitle('Contact | School finder Nantes');
+    this.metaService.updateTag({
+      name: 'description',
+      content:
+        'Formulaire de contact fictif pour School finder Nantes. Retrouvez ici comment nous joindre ou poser vos questions.',
+    });
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Contact | School finder Nantes',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content:
+        'Formulaire de contact fictif pour School finder Nantes. Retrouvez ici comment nous joindre ou poser vos questions.',
+    });
+    this.metaService.updateTag({
+      property: 'og:type',
+      content: 'website',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://sato-isolated.github.io/school-finder-nantes/contact',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: '/assets/img/logo.jpg',
     });
   }
 

@@ -10,13 +10,31 @@
   </div>
 </header>
 
+<section class="home-warning faq-warning">
+  <strong>À savoir :</strong> Ce site est un projet de formation, non officiel.
+  Les résultats affichés sont réels, mais la plateforme n'a pas de vocation
+  commerciale ou institutionnelle.<br />
+  Le code source est disponible sur
+  <a
+    href="https://github.com/Sato-Isolated/school-finder-nantes"
+    target="_blank"
+    rel="noopener"
+    >GitHub</a
+  >.
+</section>
+
 <!-- Section de recherche principale -->
 <section class="search-section" aria-label="Recherche d'établissement">
   <div class="container">
     <mat-card class="search-card">
       <h2>Rechercher un établissement</h2>
       <!-- Bouton pour accéder à la page de recherche -->
-      <button mat-raised-button (click)="goToSearch()" class="search-btn" aria-label="Rechercher un établissement scolaire">
+      <button
+        mat-raised-button
+        (click)="goToSearch()"
+        class="search-btn"
+        aria-label="Rechercher un établissement scolaire"
+      >
         <mat-icon aria-hidden="true">search</mat-icon>
         Rechercher parmi {{ totalSchools$ | async }} établissements
       </button>
@@ -25,7 +43,10 @@
 </section>
 
 <!-- Section présentant les avantages de la plateforme -->
-<section class="featured-section" aria-label="Pourquoi utiliser notre plateforme ?">
+<section
+  class="featured-section"
+  aria-label="Pourquoi utiliser notre plateforme ?"
+>
   <div class="container">
     <h3>Pourquoi utiliser notre plateforme ?</h3>
     <div class="features-cards">
@@ -46,8 +67,8 @@
       <!-- Carte : localisation -->
       <mat-card appearance="outlined">
         <mat-card-content class="feature-card-content">
-            <mat-icon aria-hidden="true">map</mat-icon>
-            <span>Localisez les établissements près de chez vous</span>
+          <mat-icon aria-hidden="true">map</mat-icon>
+          <span>Localisez les établissements près de chez vous</span>
         </mat-card-content>
       </mat-card>
     </div>
